@@ -1,5 +1,7 @@
 {
   "name": "Ativitylist",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
