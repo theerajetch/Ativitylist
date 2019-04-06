@@ -8,13 +8,13 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  addedtodolist:any[]=[];
+  addedToDolist:any[]=[];
   temptodo:any="";
   todoPage = NewactivityPage;
   constructor(public navCtrl: NavController,public navParam:NavParams, public storage:Storage) {
     this.storage.get('todoDetails').then(
       (val)=>{
-        this.addedtodolist=val;
+        this.addedToDolist=val;
     });
 
   }
@@ -33,7 +33,7 @@ ngOnInit():void{
 ionViewDidEnter(){
   this.storage.get('todoDetails').then
   ((val)=>{
-  this.addedtodolist=val;
+  this.addedToDolist=val;
   });
 }
 
@@ -41,10 +41,10 @@ goToAddTodo():void{
   this.navCtrl.push(NewactivityPage);
 }
 removeItem(todo):void{
-  let index = this.addedtodolist.indexOf(todo);
+  let index = this.addedToDolist.indexOf(todo);
   if(index>-1){
-    this.addedtodolist.splice(index,1);
-    this.storage.set('todoDetails',this.addedtodolist);
+    this.addedToDolist.splice(index,1);
+    this.storage.set('todoDetails',this.addedToDolist);
   }
 }
 
